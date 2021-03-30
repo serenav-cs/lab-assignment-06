@@ -11,24 +11,7 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
 
     @Override
     public boolean add(T item) {
-/*
-        //inserting items that don't  have any items on list yet
-        if (head == null) {
-            head = new Node(item);
-            //head.next=null;
-            ++size;
-            return true;
-        }
-        //inserting items that already have items on list
-        Node prev = head;
-        for (int i = 0; i < size; i++)
-            prev = prev.next;
 
-        Node node = new Node(item);
-        prev.next = node;
-        ++size;
-        return true;
-        */
         if (head == null) {
             head = new Node<>(item);
             ++size;
@@ -100,6 +83,8 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
     }
 
 
+
+
     public static void main(String[] args) throws Exception {
         SortedLinkedList sll = new SortedLinkedList();
         sll.add("10");
@@ -108,28 +93,24 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
         sll.add("40");
         sll.add("1");
         sll.add("14");
-        sll.add("2");
+       
         for (int i = 0; i < sll.size(); i++) {
             System.out.print(sll.get(i) + " ");
         }
 
-
         System.out.println(" ");
-        System.out.println(sll.get(0)); //prints 1 since that is the number at that position
+        System.out.println("this returns the fourth element in the array: " + sll.get(3)); //prints 1 since that is the number at that position
 
         //testing remove
         System.out.println(sll.remove(5));
-        //System.out.println(a1);
-
 
         for (int i = 0; i < sll.size(); i++) {
             System.out.print(sll.get(i) + " ");
         }
         System.out.println(" ");
 
-        //testing size
+        //testing size function
         System.out.println("Size of Arraylist: " + sll.size());
-
 
     }
 }
