@@ -1,4 +1,16 @@
-public interface SortedList {
+public interface SortedList <T extends Comparable<T>>{
 
-    public boolean add(Comparable<T> item)
+    boolean add(T item);
+
+    T remove(int pos) throws Exception;
+
+    T get(int pos) throws Exception;
+
+    int size();
+
+
+
+
+
+
 }
