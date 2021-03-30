@@ -3,8 +3,7 @@ import java.util.Arrays;
 public class SortedLinkedList <T extends Comparable <T>> implements SortedList <T> {
     private int size;
     private Node <T>head;
-    
-//constructor 
+
     public SortedLinkedList() {
         head=null;
         this.size = 0;
@@ -46,7 +45,7 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
     @Override
     public T remove(int pos) throws Exception {
         if (pos < 0 || pos >= size)
-            throw new Exception("Invalid position");
+            throw new Exception("Invalid position using remove");
 
         if (pos == 0) {
             Node node = head;
@@ -69,7 +68,7 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
     @Override
     public T get(int pos) throws Exception {
         if (pos < 0 || pos >= size) {
-            throw new Exception("Invalid position");
+            throw new Exception("Invalid position using get");
         }
         Node curr = head;
         for (int i = 0; i < pos; i++) {
@@ -83,9 +82,6 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
         return size;
     }
 
-
-
-
     public static void main(String[] args) throws Exception {
         SortedLinkedList sll = new SortedLinkedList();
         sll.add("10");
@@ -94,7 +90,6 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
         sll.add("40");
         sll.add("1");
         sll.add("14");
-       
         for (int i = 0; i < sll.size(); i++) {
             System.out.print(sll.get(i) + " ");
         }
@@ -103,7 +98,8 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
         System.out.println("this returns the fourth element in the array: " + sll.get(3)); //prints 1 since that is the number at that position
 
         //testing remove
-        System.out.println(sll.remove(5));
+        System.out.println("This removes: " + sll.remove(5));
+
 
         for (int i = 0; i < sll.size(); i++) {
             System.out.print(sll.get(i) + " ");
@@ -113,5 +109,10 @@ public class SortedLinkedList <T extends Comparable <T>> implements SortedList <
         //testing size function
         System.out.println("Size of Arraylist: " + sll.size());
 
+        //Detects invalid position in remove and throws an exception
+        System.out.println(sll.remove(6));
+
+        //Detects invalid position in get  and throws an exception
+        System.out.println("this returns the fourth element in the array: " + sll.get(6));
     }
 }

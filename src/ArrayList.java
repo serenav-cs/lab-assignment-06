@@ -56,10 +56,10 @@ public  class ArrayList <T extends Comparable <T>> implements SortedList <T>{
     }
 
     @Override
-    public T remove(int pos) {
+    public T remove(int pos) throws Exception {
         if (pos < 0 || pos >= size)
-            //throw new Exception("Invalid Position");
-            System.out.println("INVALID position-remove");
+            throw new Exception("Invalid Position");
+            //System.out.println("INVALID position-remove");
 
         T item = sortedArr[pos];
         for (int i = pos; i < size - 1; i++){
@@ -70,29 +70,24 @@ public  class ArrayList <T extends Comparable <T>> implements SortedList <T>{
     }
 
     @Override
-    public T get(int pos) {
+    public T get(int pos) throws Exception {
         if (pos < 0 || pos >= size)
-            //throw new Exception("Invalid Position");
-            System.out.println("INVALID position-get");
+            throw new Exception("Invalid Position using get");
+            //System.out.println("INVALID position-get");
 
         return sortedArr[pos];
     }
 
     @Override
     public int size() {
+
         return size;
     }
 
-    @Override
-    public String toString() {
-        return "ArrayList{" +
-                "sortedArr=" + Arrays.toString(sortedArr) +
-                ", size=" + size +
-                '}';
-    }
 
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception {
         ArrayList al = new ArrayList();
         al.add(44);
         al.add(12);
@@ -106,18 +101,25 @@ public  class ArrayList <T extends Comparable <T>> implements SortedList <T>{
         }
         System.out.println(" ");
 
-        System.out.println("this returns the second element in the array: " + al.get(1)); //prints 1 since that is the number at that position
-//
-        //testing remove
-        System.out.println("this removed item: " + al.remove(5));
-        //System.out.println(a1);
+        //tests get method
+        System.out.println("this returns the fourth element in the array: " + al.get(3)); //prints 1 since that is the number at that position
 
-        for(int i=0; i < al.size(); i++){
-            System.out.print( al.get(i)+ " " );
+        //testing remove method
+        System.out.println("This removes: " + al.remove(5));
+
+
+        for (int i = 0; i < al.size(); i++) {
+            System.out.print(al.get(i) + " ");
         }
         System.out.println(" ");
-//
-        //testing size
+
+        //testing size function
         System.out.println("Size of Arraylist: " + al.size());
+
+        //Detects invalid position in remove and throws an exception
+        System.out.println(al.remove(6));
+
+        //Detects invalid position in get  and throws an exception
+        System.out.println("this returns the fourth element in the array: " + al.get(6));
     }
 }
