@@ -3,7 +3,8 @@ import java.util.Arrays;
 public class SortedLinkedList <T extends Comparable <T>> implements SortedList <T> {
     private int size;
     private Node <T>head;
-
+    
+//constructor 
     public SortedLinkedList() {
         head=null;
         this.size = 0;
